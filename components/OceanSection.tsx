@@ -70,7 +70,7 @@ export default function OceanSection() {
         ref={bgRef}
         className="absolute inset-0 w-full h-[120%] bg-cover bg-center"
         style={{
-          backgroundImage: 'url(/assets/images/ocean.jpeg)',
+          backgroundImage: 'url(/assets/images/ocean.webp)',
         }}
       />
 

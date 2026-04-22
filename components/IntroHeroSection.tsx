@@ -54,13 +54,13 @@ export default function IntroHeroSection() {
       className="relative h-screen w-full flex items-center justify-center bg-charcoal overflow-hidden"
     >
       {/* Layer 1 - Text (behind globe) */}
-      <div ref={contentRef} className="absolute inset-0 flex flex-col items-center justify-center" style={{ marginTop: '-20vh' }}>
+      <div ref={contentRef} className="absolute inset-0 flex flex-col items-center justify-center -mt-[33vh] md:-mt-[20vh]">
         <p className="font-montserrat editorial-subheading text-muted-lavender text-sm md:text-base mb-2 tracking-widest relative z-30">
           THE FUTURE OF
         </p>
         <div className="font-playfair editorial-heading text-off-white leading-none text-center">
           <span className="block text-8xl md:text-[10rem] lg:text-[12rem] relative z-30">Our</span>
-          <span className="block text-[7rem] sm:text-[7rem] md:text-[16rem] lg:text-[20rem] relative z-[5] px-4 md:px-0" style={{ marginTop: '-0.2em' }}>Planet</span>
+          <span className="block text-[7rem] sm:text-[7rem] md:text-[20rem] lg:text-[26rem] relative z-[5] px-4 md:px-0" style={{ marginTop: '-0.2em' }}>Planet</span>
         </div>
       </div>
 
@@ -90,7 +90,7 @@ export default function IntroHeroSection() {
       </div>
 
       {/* Layer 3 - Subtitle */}
-      <p className="absolute bottom-12 left-0 right-0 text-center font-montserrat text-lg md:text-2xl text-off-white/80 leading-relaxed font-light z-[30]">
+      <p className="absolute left-0 right-0 text-center font-montserrat text-lg md:text-2xl text-off-white/80 leading-relaxed font-light z-[30] top-[48%] md:bottom-12 md:top-auto">
         A journey through Earth's most precious ecosystems
       </p>
     </section>

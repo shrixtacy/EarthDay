@@ -60,7 +60,7 @@ export default function SoilSection() {
         ref={bgRef}
         className="absolute inset-0 w-full h-[120%] bg-cover bg-center"
         style={{
-          backgroundImage: 'url(/assets/images/soil.jpeg)',
+          backgroundImage: 'url(/assets/images/soil.webp)',
         }}
       />
 
