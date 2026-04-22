@@ -1,26 +1,98 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --charcoal: #1a1a1d;
+  --muted-lavender: #9b8fa6;
+  --sage-green: #8a9a8e;
+  --off-white: #f5f5f0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--charcoal);
+  color: var(--off-white);
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.02;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.glow-text {
+  text-shadow: 0 0 30px rgba(155, 143, 166, 0.3);
+}
+
+.glass-card {
+  background: rgba(26, 26, 29, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(155, 143, 166, 0.2);
+}
+
+.glass-text {
+  color: rgba(245, 245, 240, 0.9);
+}
+
+.glass-text-whale {
+  color: rgba(245, 245, 240, 0.4);
+}
+
+/* High contrast serif typography */
+.editorial-heading {
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+
+.editorial-subheading {
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Smooth transitions */
+* {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Oval mask shapes */
+.oval-mask {
+  clip-path: ellipse(45% 50% at 50% 50%);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+html,
+body {
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
 }
