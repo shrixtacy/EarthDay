@@ -51,16 +51,26 @@ export default function PledgeSection() {
     };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Pledge submitted:', formData);
-    setSubmitted(true);
     
-    // Reset after 3 seconds
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: '', email: '', pledge: '' });
-    }, 3000);
+    try {
+      const res = await fetch('/api/pledge', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+        setTimeout(() => {
+          setSubmitted(false);
+          setFormData({ name: '', email: '', pledge: '' });
+        }, 5000);
+      }
+    } catch (err) {
+      console.error('Error submitting pledge:', err);
+    }
   };
 
   const handleChange = (
